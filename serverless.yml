@@ -12,30 +12,37 @@ provider:
   
   # Environment Variables
   environment:
-    MYSQL_HOST: ${self:custom.mysqlHost.${self:provider.stage}}
-    MYSQL_USER: ${self:custom.mysqlUser.${self:provider.stage}}
-    MYSQL_PASSWORD: ${self:custom.mysqlPassword.${self:provider.stage}}
-    MYSQL_DATABASE: ${self:custom.mysqlDatabase.${self:provider.stage}}
-    MYSQL_PORT: ${self:custom.mysqlPort.${self:provider.stage}}
+    DB_HOST: ${self:custom.dbHost.${self:provider.stage}}
+    DB_USER: ${self:custom.dbUser.${self:provider.stage}}
+    DB_PASSWORD: ${self:custom.dbPassword.${self:provider.stage}}
+    DB_DATABASE: ${self:custom.dbDatabase.${self:provider.stage}}
+    DB_PORT: ${self:custom.dbPort.${self:provider.stage}}
+
 
 # Custom Variables
 custom:
   stages:
     - local
     - dev
-  mysqlHost:
-    local: localhost
-  mysqlUser:
-    local: user
-  mysqlPassword:
-    local: password
-  mysqlDatabase:
-    local: dbname
-  mysqlPort:
-    local: '3306'
+  dbHost:
+    local: 127.0.0.1
+    dev: 127.0.0.1
+  dbUser:
+    local: postgres
+    dev: postgres
+  dbPassword:
+    local: null
+    dev: null
+  dbDatabase:
+    local: test
+    dev: test
+  dbPort:
+    local: '5432'
+    dev: '5432'
 package:
   individually: true
 
+  # Handlers definition
 functions:
 
   author:

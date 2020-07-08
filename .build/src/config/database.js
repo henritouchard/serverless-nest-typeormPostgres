@@ -27,13 +27,14 @@ let TypeOrmConfigService = class TypeOrmConfigService {
             }
             else {
                 console.log("get Options to connect database");
+                console.log(process.env.DB_USER);
                 options = {
                     type: 'postgres',
-                    host: "127.0.0.1",
-                    username: "postgres",
-                    password: null,
-                    database: "lizee_rms",
-                    port: 5432,
+                    host: process.env.DB_HOST,
+                    username: process.env.DB_USER,
+                    password: process.env.DB_PASSWORD,
+                    database: process.env.DB_DATABASE,
+                    port: parseInt(process.env.DB_PORT, 10),
                     entities: [__dirname + '/../entity/**.entity{.ts,.js}'],
                     synchronize: true,
                 };

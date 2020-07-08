@@ -19,9 +19,10 @@
   "author": "Matija Kop",
   "license": "MIT",
   "scripts": {
+    "start": "nodemon --exec  \"sls offline\"",
+    "clean": "rm -rf .build node_modules && npm install",
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "sls:offline": "sls offline start",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",

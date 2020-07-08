@@ -11,14 +11,17 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "paths": {
     "@db-config/*": [
       "src/config/*"
     ],
-    "@modules/*":[
+    "@modules/*": [
       "src/modules/*"
     ],
     "@entities/*": [
